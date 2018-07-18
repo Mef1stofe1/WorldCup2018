@@ -1,0 +1,8 @@
+{
+    "/v2/*": {
+      "target": "http://api.football-data.org",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }

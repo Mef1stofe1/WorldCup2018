@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: 'http://api.football-data.org/v2/'
+    apiUrl: 'http://api.football-data.org/v2/competitions'
 };
