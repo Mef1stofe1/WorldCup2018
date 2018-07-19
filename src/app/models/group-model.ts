@@ -1,9 +1,11 @@
-export interface iTeam {
-    constructor(name: string, id: number)
+export interface Group {
+    name: string;
+    teams: Array<TeamInfo>;
 }
 
-export class Group {
+export class TeamInfo {
     name: string;
+    id: number;
     position: number = 0;
     draw: number = 0;
     lost: number = 0;
@@ -11,5 +13,4 @@ export class Group {
     playedGames: number = 0;
     goals: number = 0;
     points: number = 0;
-    team?: iTeam;
 }
