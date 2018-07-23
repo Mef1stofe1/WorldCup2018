@@ -17,22 +17,25 @@ export class ManagerService {
 
 
 
-  loadCupStandings() {
-    const uri = 'v2/competitions/2000/standings';
-    let result = this.httpService.requestData(uri).subscribe(
-      data => { this.createGroupsList(data.standings); },
-      err => console.error(err)
-    );
+  loadGroupStageStandings(): Array<Group> {
+    let groupsStandingsList: Array<Group>;
+    this.httpService.requestData('v2/competitions/2000/standings').subscribe(
+      data => { groupsStandingsList = this.createGroupsList(data.standings); },
+      err => console.error(err));
+    return groupsStandingsList;
   }
 
 
-  createGroupsList(data: Array<any>) {
+  createGroupsList(data: Array<any>): Array<Group> {
+    return this.generateListOfGroups(data.filter(group => group.type === 'TOTAL'));
+  }
+
+  generateListOfGroups(listOfGroups: Array<any>): Array<Group> {
     let Groups: Array<Group> = [];
-    let listOfGroups = data.filter(group => group.type === 'TOTAL');
     listOfGroups.forEach(group => {
       Groups.push({ name: group.group, teams: this.createTeamsGroupList(group.table) })
     });
-    console.log('New array', Groups);
+    return Groups;
   }
 
   createTeamsGroupList(groupTeams: Array<any>): Array<TeamInfo> {

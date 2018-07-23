@@ -6,12 +6,14 @@ import { ListComponent } from './components/list/list.component';
 import { MainComponentComponent } from './components/main-component/main-component.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { GroupTableComponent } from './components/group-component/group-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    MainComponentComponent
+    MainComponentComponent,
+    GroupTableComponent
   ],
   imports: [
     BrowserModule,
