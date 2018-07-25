@@ -3,6 +3,7 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import { Group, TeamInfo } from '../models/group-model';
 import { isNgTemplate } from '../../../node_modules/@angular/compiler';
+import { pipeBind1 } from '../../../node_modules/@angular/core/src/render3/pipe';
 
 
 
@@ -16,15 +17,16 @@ export class ManagerService {
   constructor(private httpService: HttpService) { }
 
 
-
-  loadGroupStageStandings(): Array<Group> {
-    let groupsStandingsList: Array<Group>;
+  public groupsStandingsList: Array<Group>;
+  loadGroupStageStandings() {
     this.httpService.requestData('v2/competitions/2000/standings').subscribe(
-      data => { groupsStandingsList = this.createGroupsList(data.standings); },
+      data => { this.groupsStandingsList = this.createGroupsList(data.standings); },
       err => console.error(err));
-    return groupsStandingsList;
   }
 
+  formGroupTableHeaders(): string[] {
+    return ["Team", "Points", "Played Games", "Won", "Lost", "Draw", "Scored Goals", "Missed Goals"];
+  }
 
   createGroupsList(data: Array<any>): Array<Group> {
     return this.generateListOfGroups(data.filter(group => group.type === 'TOTAL'));
@@ -49,12 +51,15 @@ export class ManagerService {
           position: team.position,
           points: team.points,
           won: team.won,
-          goals: team.goals,
+          goalsFor: team.goalsFor,
+          goalsAgainst : team.goalsAgainst,
           lost: team.lost,
           playedGames: team.playedGames
         });
       }, console.log(teamsGroupList)
     );
-    return teamsGroupList;
+    return teamsGroupList.sort((p1, p2) => {
+      return p1.position - p2.position;
+    });
   }
 }

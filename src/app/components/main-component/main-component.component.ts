@@ -11,7 +11,7 @@ export class MainComponentComponent implements OnInit {
   constructor(private manager: ManagerService) { }
 
   ngOnInit() {
-    this.manager.loadCupStandings();
+
   }
 
 }

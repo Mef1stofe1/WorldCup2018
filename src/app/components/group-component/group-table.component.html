@@ -1,3 +1,25 @@
-<p>
-  group-table works!
-</p>
+<div *ngFor="let group of manager.groupsStandingsList">
+  <div class="panel panel-default">
+    <div class="panel-heading">{{group.name}}</div>
+
+    <table class="table table-bordered">
+      <thead class="thead-black">
+        <tr>
+          <th *ngFor="let header of tableHeaders">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of group.teams">
+          <td scope="row">{{team.name}}</td>
+          <td scope="row">{{team.points}}</td>
+          <td scope="row">{{team.playedGames}}</td>
+          <td scope="row">{{team.won}}</td>
+          <td scope="row">{{team.lost}}</td>
+          <td scope="row">{{team.draw}}</td>
+          <td scope="row">{{team.goalsFor}}</td>
+          <td scope="row">{{team.goalsAgainst}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -8,13 +8,14 @@ import { Group } from '../../models/group-model';
   styleUrls: ['./group-table.component.css']
 })
 
-var groupsList: Array<Group>;
 export class GroupTableComponent implements OnInit {
 
-  constructor(private manager: ManagerService) { }
+  constructor(public manager: ManagerService) { }
+
+  tableHeaders: string[];
 
   ngOnInit() {
-    groupsList = this.manager.loadGroupStageStandings();
+    this.tableHeaders = this.manager.formGroupTableHeaders();
+     this.manager.loadGroupStageStandings();
   }
-
 }
