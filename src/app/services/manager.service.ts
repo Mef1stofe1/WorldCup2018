@@ -54,7 +54,7 @@ export class ManagerService {
           goalsFor: team.goalsFor,
           goalsAgainst : team.goalsAgainst,
           lost: team.lost,
-          playedGames: team.playedGames
+          playedGames: team.playedGames,
         });
       }, console.log(teamsGroupList)
     );
