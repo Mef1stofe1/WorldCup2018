@@ -35,12 +35,20 @@ export class ManagerService {
   generateListOfGroups(listOfGroups: Array<any>): Array<Group> {
     let Groups: Array<Group> = [];
     listOfGroups.forEach(group => {
-      Groups.push({ name: group.group, teams: this.createTeamsGroupList(group.table) })
+      Groups.push({ name: this.editGroupName(group.group), teams: this.createTeamsGroupList(group.table) })
     });
     return Groups;
   }
-
+  editGroupName(name: string): string {
+    return name.replace("_", " ");
+  }
   createTeamsGroupList(groupTeams: Array<any>): Array<TeamInfo> {
+    return this.editTeam(groupTeams).sort((p1, p2) => {
+      return p1.position - p2.position;
+    });
+  }
+
+  editTeam(groupTeams: Array<any>): Array<TeamInfo> {
     let teamsGroupList: Array<TeamInfo> = [];
     groupTeams.map(
       team => {
@@ -52,14 +60,11 @@ export class ManagerService {
           points: team.points,
           won: team.won,
           goalsFor: team.goalsFor,
-          goalsAgainst : team.goalsAgainst,
+          goalsAgainst: team.goalsAgainst,
           lost: team.lost,
           playedGames: team.playedGames,
         });
-      }, console.log(teamsGroupList)
-    );
-    return teamsGroupList.sort((p1, p2) => {
-      return p1.position - p2.position;
-    });
+      });
+    return teamsGroupList;
   }
 }
