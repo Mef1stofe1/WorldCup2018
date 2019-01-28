@@ -1,0 +1,25 @@
+<div *ngFor="let game of manager.gamesPlayOfflist">
+  <div class="panel panel-default">
+    <div class="panel-heading"></div>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Team</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of manager.gamesPlayOfflist">
+          <td scope="row"><img src="../../../assets/{{team.name}}.gif"/> {{team.name}}</td>
+          <td scope="row">{{game.awayTeam}}</td>
+          <td scope="row">{{team.playedGames}}</td>
+          <td scope="row">{{team.won}}</td>
+          <td scope="row">{{team.lost}}</td>
+          <td scope="row">{{team.draw}}</td>
+          <td scope="row">{{team.goalsFor}}</td>
+          <td scope="row">{{team.goalsAgainst}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
