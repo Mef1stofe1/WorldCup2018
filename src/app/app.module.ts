@@ -7,17 +7,22 @@ import { MainComponentComponent } from './components/main-component/main-compone
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { GroupTableComponent } from './components/group-component/group-table.component';
+import { AppRouterModule } from './app-router/app-router.module';
+import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './components/PageNotFound/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     MainComponentComponent,
-    GroupTableComponent
+    GroupTableComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
