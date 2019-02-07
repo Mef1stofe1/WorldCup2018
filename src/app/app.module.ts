@@ -10,6 +10,9 @@ import { GroupTableComponent } from './components/group-component/group-table.co
 import { AppRouterModule } from './app-router/app-router.module';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './components/PageNotFound/page-not-found.component';
+import { QuarterFinalComponent } from './components/quarter-final/quarter-final.component';
+import { SemiFinalComponent } from './components/semi-final/semi-final.component';
+import { PlayOffComponent } from './components/play-off/play-off.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { PageNotFoundComponent } from './components/PageNotFound/page-not-found.
     ListComponent,
     MainComponentComponent,
     GroupTableComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    QuarterFinalComponent,
+    SemiFinalComponent,
+    PlayOffComponent
   ],
   imports: [
     BrowserModule,
