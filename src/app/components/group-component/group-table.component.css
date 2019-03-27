@@ -1,0 +1,12 @@
+.panel-heading {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+}
+.panel {
+    padding-left: 30px;
+}
+
+tr:hover{
+cursor: pointer;
+}

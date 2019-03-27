@@ -1,0 +1,9 @@
+.jumbotron {
+    background: url(https://t4.ftcdn.net/jpg/01/17/66/83/240_F_117668344_WIEDi2M0rNrDJaLWKF1jCRKsgt9xyowL.jpg);
+    color: white;
+}
+
+.col{
+    padding-left:5%;
+    padding-right:5%; 
+}

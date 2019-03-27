@@ -11,6 +11,12 @@ export class TeamInfo {
     lost: number = 0;
     won: number = 0;
     playedGames: number = 0;
-    goals: number = 0;
+    goalsFor: number = 0;
+    goalsAgainst: number = 0;
     points: number = 0;
+}
+
+export class TableHeaders {
+    name: string;
+    key: string;
 }

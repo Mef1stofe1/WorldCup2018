@@ -1,3 +1,21 @@
-<p>
-  main-component works!
-</p>
+<header id="header" class="jumbotron jumbotron-fluid" id="header">
+  <div class="container">
+    <h3 class="display-3">WorldCup 2018</h3>
+    <p class="lead">International football event</p>
+  </div>
+</header>
+<div class="container-fluid">
+      <div class="row" id="main-content">
+    <aside class="col-3">
+      <app-list></app-list>
+    </aside>
+    <section class="col">
+        <router-outlet></router-outlet>
+    </section>
+  </div>
+  <footer class="row">
+    <div class="col">
+      <p>Footer</p>
+    </div>
+  </footer>
+</div>
